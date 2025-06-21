@@ -1,0 +1,15 @@
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/bin/Debug/net9.0/SistemNotaris.Application.deps.json
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/bin/Debug/net9.0/SistemNotaris.Application.dll
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/bin/Debug/net9.0/SistemNotaris.Application.pdb
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/bin/Debug/net9.0/SistemNotaris.Domain.dll
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/bin/Debug/net9.0/SistemNotaris.Domain.pdb
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.csproj.AssemblyReference.cache
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.AssemblyInfoInputs.cache
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.AssemblyInfo.cs
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.csproj.CoreCompileInputs.cache
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNo.E142CCE4.Up2Date
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.dll
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/refint/SistemNotaris.Application.dll
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/SistemNotaris.Application.pdb
+/home/rifqi/RiderProjects/SIstemNotaris/SistemNotaris.Application/obj/Debug/net9.0/ref/SistemNotaris.Application.dll

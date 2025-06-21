@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.66" />
+        <PackageReference Include="MediatR" Version="12.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SistemNotaris.Domain\SistemNotaris.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Abstraction\Caching\" />
+      <Folder Include="Akta\GetAkta\" />
+      <Folder Include="Akta\SearchAkta\" />
+      <Folder Include="Karyawan\GetAllKaryawan\" />
+      <Folder Include="Karyawan\GetKaryawanInfo\" />
+      <Folder Include="Karyawan\SearchKaryawan\" />
+      <Folder Include="Karyawan\Shared\" />
+    </ItemGroup>
+
+</Project>
