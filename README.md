@@ -1,0 +1,2 @@
+# Web App Notaris Applicaiton
+This is a web application for a notary service. It allows users to create and manage Legal Document to trackdown employee task so that notary know where is document status. This is an Ongoing Project that made with .NET and DDD pattern. 

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "baoeY+BXI9Q=",
+  "success": true,
+  "projectFilePath": "/home/rifqi/RiderProjects/SistemNotaris/src/SistemNotaris.Domain/SistemNotaris.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/rifqi/.nuget/packages/mediatr/12.5.0/mediatr.12.5.0.nupkg.sha512",
+    "/home/rifqi/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/rifqi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
