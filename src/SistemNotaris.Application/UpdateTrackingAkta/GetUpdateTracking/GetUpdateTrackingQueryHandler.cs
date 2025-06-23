@@ -21,14 +21,13 @@ public class GetUpdateTrackingQueryHandler : IQueryHandler<GetUpdateTrackingQuer
     
         const string sql = """
                                SELECT 
-                                   id AS Id,
-                                   tracking_id AS TrackingId,
-                                   id_karyawan AS IdKaryawan,
-                                   deskripsi_pengerjaan AS DeskripsiPengerjaan,
-                                   created_at AS CreatedAt
-                               FROM update_tracking_akta
-                               WHERE tracking_id = @TrackingId
-                               ORDER BY created_at ASC 
+                                   k.nama AS NamaKaryawan,
+                                   u.deskripsi_pengerjaan AS DeskripsiPengerjaan,
+                                   u.created_at AS CreatedAt
+                               FROM update_tracking_akta u
+                               INNER JOIN karyawan k ON u.karyawan_id = k.id
+                               WHERE u.tracking_id = @TrackingId 
+                               ORDER BY u.created_at ASC 
                            """;
         var updateTracking = await connection.QueryFirstOrDefaultAsync<UpdateTrackingResponse>(
             sql,
