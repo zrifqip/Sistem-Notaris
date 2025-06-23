@@ -4,7 +4,7 @@ using SistemNotaris.Domain.TrackingsAkta;
 namespace SistemNotaris.Application.TrackingAkta.GetAllTrackingAkta;
 
 public sealed record GetTrackingAktaQuery(
-    ProgresStatus Status,
+    ProgresStatus? Status = null,
     string? ClientName = null,
     string? AktaName = null,
     string SortByDate = "ASC"

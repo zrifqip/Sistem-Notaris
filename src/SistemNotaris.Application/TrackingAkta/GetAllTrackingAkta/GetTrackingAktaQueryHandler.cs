@@ -5,7 +5,7 @@ using Dapper;
 
 namespace SistemNotaris.Application.TrackingAkta.GetAllTrackingAkta;
 
-public class GetTrackingAktaQueryHandler : IQueryHandler<GetTrackingAktaQuery, TrackingResponse>
+internal sealed class GetTrackingAktaQueryHandler : IQueryHandler<GetTrackingAktaQuery, TrackingResponse>
 {
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
 
@@ -20,19 +20,26 @@ public class GetTrackingAktaQueryHandler : IQueryHandler<GetTrackingAktaQuery, T
 
         var sql = """
             SELECT
-                t.id AS Id,
-                t.status AS Status,
-                a.nama_akta AS AktaName,
-                c.nama AS ClientName,
-                k.nama AS KaryawanName,
+                t.ID AS Id,
+                t.STATUS AS Status,
+                a.JENIS_AKTA AS JenisAkta,
+                a.NAMA_AKTA AS NamaAkta,
+                c.NAMA AS NamaClient,
+                k.NAMA AS NamaKaryawan,
+                t.DESKRIPSI AS Deskripsi,
+                t.UPDATED_AT AS UpdatedAt
             FROM tracking_akta t
-            INNER JOIN akta a ON t.id_akta = a.id
-            INNER JOIN client c ON a.id_client = c.id
-            INNER JOIN Karyawan k ON t.id_karyawan = k.id
-            WHERE t.status = @Status
+                INNER JOIN akta a ON t.id_akta = a.id
+                INNER JOIN client c ON a.client_id = c.nik
+                INNER JOIN karyawan k ON t.id_karyawan = k.id
         """;
+
         var parameters = new DynamicParameters();
-        parameters.Add("Status", request.Status);
+        if(request.Status != null)
+        {
+            sql += " WHERE t.status = @Status";
+            parameters.Add("Status", request.Status.ToString());
+        }
         if (!string.IsNullOrEmpty(request.ClientName))
         {
             sql += " AND c.nama LIKE @ClientName";
@@ -40,10 +47,10 @@ public class GetTrackingAktaQueryHandler : IQueryHandler<GetTrackingAktaQuery, T
         }
         if (!string.IsNullOrEmpty(request.AktaName))
         {
-            sql += " AND a.nama_akta LIKE @AktaName";
+            sql += " AND a.NAMA_AKTA LIKE @AktaName";
             parameters.Add("AktaName", $"%{request.AktaName}%");
         }
-        sql += $" ORDER BY t.created_at {(request.SortByDate.ToUpper() == "DESC" ? "DESC" : "ASC")}";
+        sql += $" ORDER BY t.UPDATED_AT {(request.SortByDate.ToUpper() == "DESC" ? "DESC" : "ASC")}";
         var trackings = await connection.QueryAsync<TrackingResponse>(sql, parameters);
         return trackings.FirstOrDefault();
     }
