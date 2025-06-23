@@ -1,13 +1,9 @@
-using SistemNotaris.Domain.Karyawan;
-using SistemNotaris.Domain.Shared;
+namespace SistemNotaris.Application.Karyawan.GetKaryawan.SearchKaryawan;
 
-namespace SistemNotaris.Application.Karyawan.GetKaryawan;
-
-public class KaryawanResponse
+internal sealed class KaryawanResponse
 {
-    public Guid Id { get; set; }
-    public Nama Nama { get; set; }
-    public NoTelfon NoTelfon { get; set; }
-    public LoginStatus LoginStatus { get; set; }
-    public RecordPengerjaan Record { get; set; }
+    public Guid Id { get; init; }
+    public string Nama { get; init; }
+    public string NoTelfon { get; init; }
+    public int Record { get; init; }
 }

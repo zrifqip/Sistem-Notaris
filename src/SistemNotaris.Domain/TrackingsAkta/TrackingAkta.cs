@@ -12,7 +12,8 @@ public sealed class TrackingAkta : Entity<Guid>
         ProgresStatus status,
         Guid idKaryawanSaatIni,
         Deskripsi tugasSekarang,
-        DateTime createdAt
+        DateTime createdAt,
+        DateTime? finishedAt = null
     ) : base(id)
     {
         Id = id;
@@ -21,6 +22,7 @@ public sealed class TrackingAkta : Entity<Guid>
         IdKaryawanSaatini = idKaryawanSaatIni;
         TugasSekarang = tugasSekarang;
         CreatedAt = createdAt;
+        FinishedAt = finishedAt;
     }
 
     public Guid IdAkta { get; private set; }
@@ -28,6 +30,7 @@ public sealed class TrackingAkta : Entity<Guid>
     public ProgresStatus Status { get; private set; }
     public Deskripsi TugasSekarang { get; private set; }
     public DateTime? CreatedAt { get; private set; }
+    public DateTime? FinishedAt { get; private set; }
 
     public static TrackingAkta CreateAkta(
         Guid idAkta,
@@ -53,6 +56,7 @@ public sealed class TrackingAkta : Entity<Guid>
     {
         if (Status != ProgresStatus.Dikerjakan) return Result.Failure(TrackingAktaError.Inactive);
         Status = ProgresStatus.Selesai;
+        FinishedAt = wibTime;
         RaiseDomainEvent(new TrackingAktaCompletedDomainEvent(Id));
         return Result.Success();
     }
@@ -61,6 +65,7 @@ public sealed class TrackingAkta : Entity<Guid>
     {
         if (Status != ProgresStatus.Dikerjakan) return Result.Failure(TrackingAktaError.Inactive);
         Status = ProgresStatus.Dibatalkan;
+        FinishedAt = wibTime;
         RaiseDomainEvent(new TrackingAktaCancelledDomainEvent(Id));
         return Result.Success();
     }
@@ -71,7 +76,6 @@ public sealed class TrackingAkta : Entity<Guid>
         {
             return Result.Failure(TrackingAktaError.Inactive);
         }
-
         IdKaryawanSaatini = karyawanId;
         TugasSekarang = tugasSekarang;
 

@@ -29,13 +29,13 @@ public class Karyawans : Entity<Guid>
         karyawan.RaiseDomainEvent(new KaryawanCreatedDomainEvent(id));
         return karyawan;
     }
-    /*public static Result<IncrementRecordPengerjaan>(Karyawans karyawan)
+
+    public Result IncrementRecord()
     {
-        karyawan.Record = karyawan.Record.Increment();
+        if(Id == Guid.Empty)
+            return Result.Failure(KaryawanError.NotFound);
+        Record = Record.Increment();
+        RaiseDomainEvent(new KaryawanUpdatedDomainEvent(Id));
+        return Result.Success();
     }
-
-    public static void SetOnline(Karyawans karyawan)
-    {
-
-    }*/
 }

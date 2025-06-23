@@ -15,7 +15,7 @@ public class Akta : Entity<Guid>
         TanggalSelesai = tanggalSelesai;
     }
 
-    public Nama NamaAkta { get; }
+    public Nama NamaAkta { get;}
     public string ClientId { get; }
     public JenisAkta JenisAkta { get; }
     public DateTime? TanggalSelesai { get; }

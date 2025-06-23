@@ -19,7 +19,7 @@ internal sealed class GetKaryawanQueryHandler : IQueryHandler<GetKaryawanQuery, 
     public async Task<Result<KaryawanResponse>> Handle(GetKaryawanQuery request, CancellationToken cancellationToken)
     {
         var connection = _sqlconnectionFactory.CreateConnection();
-        var sql = "SELECT NAMA AS Nama FROM Karyawan WHERE IdKaryawan = @IdKaryawan";
+        var sql = "SELECT NAMA AS Nama FROM Karyawan WHERE IdKaryawan = @IdKaryawan";  
         var karyawan = await connection.QueryFirstOrDefaultAsync<KaryawanResponse>(
             sql,
             new { request.IdKaryawan });

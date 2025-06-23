@@ -29,4 +29,14 @@ public class Clients : Entity<string>
         client.RaiseDomainEvent(new ClientCreatedDomainEvent(NIK));
         return client;
     }
+
+    public Result Update(Nama nama, Alamat alamat, NoTelfon noTelfon)
+    {
+        if (Id == string.Empty) return Result.Failure(ClientError.NotFound);
+        Nama = nama;
+        Alamat = alamat;
+        NoTelfon = noTelfon;
+        RaiseDomainEvent(new ClientUpdatedDomainEvent(Id));
+        return Result.Success();
+    }
 }
