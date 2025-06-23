@@ -1,14 +1,14 @@
 using SistemNotaris.Application.Abstraction.Messaging;
 using SistemNotaris.Domain.Abstraction;
 
-namespace SistemNotaris.Application.Client.AddClient;
+namespace SistemNotaris.Application.Client.UpdateClient;
 
-public sealed record CreateClientCommand(
-    string Nik,
+public sealed record UpdateClientCommand(
+    string NIK,
     string Nama,
     string AlamatLengkap,
     string Kecamatan,
     string Kelurahan,
     string KodePos,
     string NoTelfon
-    ) : ICommand<string>;
+    ) : ICommand;

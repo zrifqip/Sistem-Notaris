@@ -1,25 +1,31 @@
+using SistemNotaris.Application.Abstraction.Data;
 using SistemNotaris.Application.Abstraction.Messaging;
 using SistemNotaris.Domain.Abstraction;
 using SistemNotaris.Domain.Client;
 using SistemNotaris.Domain.Shared;
+using Dapper;
 
-namespace SistemNotaris.Application.Client.AddClient;
+namespace SistemNotaris.Application.Client.UpdateClient;
 
-internal sealed class CreateClientCommandHandler : ICommandHandler<CreateClientCommand,string>
+internal sealed class UpdateClientCommandHandler : ICommandHandler<UpdateClientCommand>
 {
     private readonly IClientRepository _clientRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public CreateClientCommandHandler(
+    public UpdateClientCommandHandler(
         IClientRepository clientRepository,
         IUnitOfWork unitOfWork)
     {
         _clientRepository = clientRepository;
         _unitOfWork = unitOfWork;
     }
-
-    public async Task<Result<string>> Handle(CreateClientCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
     {
+        var client = await _clientRepository.GetByIdAsync(request.NIK, cancellationToken);
+        if (client == null)
+        {
+            return Result.Failure(ClientError.NotFound);
+        }
         var address = new Alamat(
             request.AlamatLengkap,
             request.Kecamatan,
@@ -28,15 +34,19 @@ internal sealed class CreateClientCommandHandler : ICommandHandler<CreateClientC
         );
         var nama = new Nama(request.Nama);
         var noTelfon = new NoTelfon(request.NoTelfon);
-        var client = Clients.Create(
-            request.Nik,
+        var result = client.Update(
             nama,
             address,
             noTelfon
         );
-        _clientRepository.Add(client);
+
+        if (result.IsFailure)
+        {
+            return result;
+        }
+
+        _clientRepository.Update(client);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return Result.Success(client.Id);
-       
+        return Result.Success();
     }
 }
