@@ -1,4 +1,5 @@
 using SistemNotaris.Domain.Abstraction;
+using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Client.Events;
 using SistemNotaris.Domain.Shared;
 

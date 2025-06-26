@@ -1,15 +1,15 @@
-﻿namespace SistemNotaris.Domain.Abstraction;
+﻿namespace SistemNotaris.Domain.Abstraction.Entity;
 
-public abstract class Entity<TId>
+public abstract class Entity<T>
 {
     private readonly List<IDomainEvent> _domainEvents = new();
 
-    protected Entity(TId id)
+    protected Entity(T id)
     {
         Id = id;
     }
 
-    public TId Id { get; init; }
+    public T Id { get; init; }
 
     public IReadOnlyList<IDomainEvent> GetDomainEvents()
     {

@@ -2,8 +2,8 @@ namespace SistemNotaris.Domain.Akta;
 
 public interface IAktaRepository
 {
-    void AddAKta(Akta akta);
-    void DeleteAkta(Akta akta);
+    void Add(Akta akta);
+    void Delete(Akta akta);
     Task<Akta?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-    Task<Akta[]> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<List<Akta>> GetAllAsync(CancellationToken cancellationToken = default);
 }
