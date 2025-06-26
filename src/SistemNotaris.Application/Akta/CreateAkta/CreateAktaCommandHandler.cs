@@ -34,7 +34,7 @@ internal sealed class CreateAktaCommandHandler : ICommandHandler<CreateAktaComma
             request.NamaAkta,
             request.JenisAkta
         );
-        _aktaRepository.AddAKta(akta);
+        _aktaRepository.Add(akta);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         
         return Result.Success(akta.Id);

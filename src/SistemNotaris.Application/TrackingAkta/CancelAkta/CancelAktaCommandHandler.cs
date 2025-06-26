@@ -22,11 +22,12 @@ internal sealed class CancelAktaCommandHandler : ICommandHandler<CancelAktaComma
     public async Task<Result> Handle(CancelAktaCommand request, CancellationToken cancellationToken)
     {
         var trackingAkta = await _trackingAktaRepository.GetByIdAsync(request.TrackingId, cancellationToken);
-        if (trackingAkta is null)
-            return Result.Failure<Guid>(TrackingAktaError.NotFound);
-
+        if (trackingAkta is null) return Result.Failure<Guid>(TrackingAktaError.NotFound);
+        
         var result = trackingAkta.CancelAkta(DateTime.Now);
+        
         if (result.IsFailure) return result;
+        
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }

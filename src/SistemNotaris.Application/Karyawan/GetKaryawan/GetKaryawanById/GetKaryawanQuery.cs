@@ -1,6 +1,6 @@
 using SistemNotaris.Application.Abstraction.Messaging;
-using SistemNotaris.Domain.Karyawan;
+using SistemNotaris.Application.Karyawan.GetKaryawan.SearchKaryawan;
 
-namespace SistemNotaris.Application.Karyawan.GetKaryawan;
+namespace SistemNotaris.Application.Karyawan.GetKaryawan.GetKaryawanById;
 
 public record GetKaryawanQuery(Guid IdKaryawan) : IQuery<KaryawanResponse>;

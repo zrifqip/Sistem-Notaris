@@ -1,4 +1,4 @@
-namespace SistemNotaris.Application.Karyawan.GetKaryawan.SearchKaryawan;
+namespace SistemNotaris.Application.Karyawan.GetKaryawan;
 
 internal sealed class KaryawanResponse
 {

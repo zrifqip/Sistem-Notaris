@@ -37,6 +37,5 @@ internal sealed class CreateClientCommandHandler : ICommandHandler<CreateClientC
         _clientRepository.Add(client);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success(client.Id);
-       
     }
 }

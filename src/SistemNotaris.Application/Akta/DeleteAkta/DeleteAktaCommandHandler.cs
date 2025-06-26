@@ -34,7 +34,7 @@ internal sealed class DeleteAktaCommandHandler : ICommandHandler<DeleteAktaComma
         {
             return result;
         }
-        _aktaRepository.DeleteAkta(akta.Id);
+        _aktaRepository.Delete(akta);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }

@@ -3,7 +3,4 @@ using SistemNotaris.Domain.Karyawan;
 
 namespace SistemNotaris.Application.Karyawan.UpdateKaryawanRecord;
 
-public record UpdateKaryawanCommand(
-    Guid Id,
-    RecordPengerjaan Record
-    ) : ICommand;
+public sealed record UpdateKaryawanCommand(Guid Id) : ICommand;
