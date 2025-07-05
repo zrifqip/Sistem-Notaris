@@ -2,12 +2,18 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21DC218E-9AAE-4B55-95BC-4BAD56A66B08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemNotaris.Api", "src\SistemNotaris.Api\SistemNotaris.Api.csproj", "{77A72F24-E81B-4189-9424-957D7F0F3713}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemNotaris.Domain", "src\SistemNotaris.Domain\SistemNotaris.Domain.csproj", "{5FC66F97-752B-448E-86DC-82C2DFF392A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemNotaris.Application", "src\SistemNotaris.Application\SistemNotaris.Application.csproj", "{A0933AF6-F2AC-44D8-A08F-FCE5BED15E64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemNotaris.Infrastructure", "src\SistemNotaris.Infrastructure\SistemNotaris.Infrastructure.csproj", "{15D265DC-02A6-4AA2-960E-8A3EB884AA72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-compose.dcproj", "{8BA42453-C7CC-4527-B777-851344D4052C}"
+EndProject
+
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,10 +32,19 @@ Global
 		{15D265DC-02A6-4AA2-960E-8A3EB884AA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15D265DC-02A6-4AA2-960E-8A3EB884AA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15D265DC-02A6-4AA2-960E-8A3EB884AA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA42453-C7CC-4527-B777-851344D4052C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA42453-C7CC-4527-B777-851344D4052C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA42453-C7CC-4527-B777-851344D4052C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA42453-C7CC-4527-B777-851344D4052C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A72F24-E81B-4189-9424-957D7F0F3713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A72F24-E81B-4189-9424-957D7F0F3713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A72F24-E81B-4189-9424-957D7F0F3713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A72F24-E81B-4189-9424-957D7F0F3713}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A0933AF6-F2AC-44D8-A08F-FCE5BED15E64} = {21DC218E-9AAE-4B55-95BC-4BAD56A66B08}
 		{5FC66F97-752B-448E-86DC-82C2DFF392A5} = {21DC218E-9AAE-4B55-95BC-4BAD56A66B08}
 		{15D265DC-02A6-4AA2-960E-8A3EB884AA72} = {21DC218E-9AAE-4B55-95BC-4BAD56A66B08}
+		{77A72F24-E81B-4189-9424-957D7F0F3713} = {21DC218E-9AAE-4B55-95BC-4BAD56A66B08}
 	EndGlobalSection
 EndGlobal

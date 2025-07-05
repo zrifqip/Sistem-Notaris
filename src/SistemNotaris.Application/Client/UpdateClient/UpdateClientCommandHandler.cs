@@ -32,12 +32,14 @@ internal sealed class UpdateClientCommandHandler : ICommandHandler<UpdateClientC
             request.Kelurahan,
             request.KodePos
         );
+        var bank = new InfoBank(request.NamaBank, request.NoRekening);
         var nama = new Nama(request.Nama);
         var noTelfon = new NoTelfon(request.NoTelfon);
         var result = client.Update(
             nama,
             address,
-            noTelfon
+            noTelfon,
+            bank
         );
 
         if (result.IsFailure)

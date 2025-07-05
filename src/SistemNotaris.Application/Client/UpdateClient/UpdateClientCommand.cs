@@ -10,5 +10,7 @@ public sealed record UpdateClientCommand(
     string Kecamatan,
     string Kelurahan,
     string KodePos,
-    string NoTelfon
+    string NoTelfon,
+    string NamaBank,
+    string NoRekening
     ) : ICommand;

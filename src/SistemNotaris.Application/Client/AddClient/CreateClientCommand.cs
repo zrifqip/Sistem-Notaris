@@ -10,5 +10,7 @@ public sealed record CreateClientCommand(
     string Kecamatan,
     string Kelurahan,
     string KodePos,
-    string NoTelfon
+    string NoTelfon,
+    string NamaBank,
+    string NoRekening
     ) : ICommand<string>;

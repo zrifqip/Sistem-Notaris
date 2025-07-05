@@ -26,13 +26,15 @@ internal sealed class CreateClientCommandHandler : ICommandHandler<CreateClientC
             request.Kelurahan,
             request.KodePos
         );
+        var bank = new InfoBank(request.NamaBank, request.NoRekening);
         var nama = new Nama(request.Nama);
         var noTelfon = new NoTelfon(request.NoTelfon);
         var client = Clients.Create(
             request.Nik,
             nama,
             address,
-            noTelfon
+            noTelfon,
+            bank
         );
         _clientRepository.Add(client);
         await _unitOfWork.SaveChangesAsync(cancellationToken);

@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  sistem-notaris.api:
+    image: sistemnotarisapi:latest
+    container_name: sistem-notaris.api
+    
+    build:
+      context: .
+      dockerfile: src/SistemNotaris.Api/Dockerfile
+    depends_on:
+      - sistem-notaris.db
+
+  sistem-notaris.db:
+    image: postgres:latest
+    container_name: sistem-notaris.db
+    environment:
+      - POSTGRES_DB=sistem_notaris
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
