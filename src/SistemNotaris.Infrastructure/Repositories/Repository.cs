@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SistemNotaris.Domain.Abstraction.Entity;
+using SistemNotaris.Domain.Abstraction;
 
 namespace SistemNotaris.Infrastructure.Repositories;
 

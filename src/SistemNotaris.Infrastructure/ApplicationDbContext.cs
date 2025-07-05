@@ -1,7 +1,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 
 namespace SistemNotaris.Infrastructure;
 

@@ -39,7 +39,7 @@ internal sealed class KaryawanConfiguration : IEntityTypeConfiguration<Karyawans
         });
 
         builder.OwnsOne(k => k.Record, r =>
-        {
+        {   
             r.Property(x => x.JumlahPengerjaan).IsRequired();
         });
     }

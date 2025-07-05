@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Akta;
 
 namespace SistemNotaris.Infrastructure.Repositories;
