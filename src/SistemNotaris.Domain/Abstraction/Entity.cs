@@ -1,4 +1,4 @@
-﻿namespace SistemNotaris.Domain.Abstraction.Entity;
+﻿namespace SistemNotaris.Domain.Abstraction;
 
 public abstract class Entity<T>
 {

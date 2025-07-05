@@ -1,5 +1,4 @@
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Akta.Events;
 using SistemNotaris.Domain.Shared;
 
@@ -15,7 +14,9 @@ public class Akta : Entity<Guid>
         JenisAkta = jenisAkta;
         TanggalSelesai = tanggalSelesai;
     }
-
+    private Akta() : base(Guid.Empty)
+    {
+    }
     public Nama NamaAkta { get;}
     public string ClientId { get; }
     public JenisAkta JenisAkta { get; }

@@ -1,5 +1,4 @@
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Shared;
 using SistemNotaris.Domain.UpdateAkta.Events;
 
@@ -21,7 +20,9 @@ public class TrackingUpdate : Entity<Guid>
         DeskripsiPengerjaan = deskripsiPengerjaan;
         CreatedAt = createdAt;
     }
-
+    private TrackingUpdate() : base(Guid.Empty)
+    {
+    }
     public Guid TrackingId { get; private set; }
     public Guid IdKaryawan { get; private set; }
     public Deskripsi DeskripsiPengerjaan { get; private set; }

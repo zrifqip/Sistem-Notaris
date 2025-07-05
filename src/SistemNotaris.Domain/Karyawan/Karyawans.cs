@@ -1,5 +1,4 @@
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Karyawan.Events;
 using SistemNotaris.Domain.Shared;
 
@@ -15,7 +14,9 @@ public class Karyawans : Entity<Guid>
         LoginStatus = loginStatus;
         Record = record;
     }
-
+    private Karyawans() : base(Guid.Empty)
+    {
+    }
     public Nama Nama { get; private set; }
     public NoTelfon NoTelfon { get; private set; }
     public LoginStatus LoginStatus { get; private set; }

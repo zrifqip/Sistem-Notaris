@@ -1,3 +1,5 @@
+using MediatR;
+
 namespace SistemNotaris.Domain.Karyawan;
 
 public class OnlineStatusService
@@ -7,19 +9,28 @@ public class OnlineStatusService
         var lastLogin = karyawan.LoginStatus.LastOnline;
         var currentTime = DateTime.Now;
         var timeDifference = currentTime - lastLogin;
-        var status = "";
-        // Beberapa detik yang lalu
+        var status = "Last seen ";
         if (timeDifference.TotalMinutes < 1)
             status = "Baru Saja Aktif";
-        // Beberapa Menit yang lalu
         else if (timeDifference.TotalMinutes < 60)
-            status = "Last seen {Math.Floor(timeDifference.TotalMinutes)} minutes ago";
-        // Beberapa Jam yang lalu
-        else if (timeDifference.TotalHours < 24)
-            status = $"Last seen {Math.Floor(timeDifference.TotalHours)} hours ago";
-        // Beberapa Hari yang lalu
+            status += GetMinutes((int)timeDifference.TotalMinutes);
+        else if (timeDifference.TotalHours < 24) 
+            status += GetHours((int)timeDifference.TotalHours);
         else
-            status = $"Last seen {Math.Floor(timeDifference.TotalDays)} Hari Yang Lalu";
+            status += GetDays((int)timeDifference.TotalDays);
         return status;
+    }
+    private static string GetDays(int days)
+    {
+        if (days == 1) return "Kemarin";
+        return $"{days} hari yang lalu";
+    }
+    private static string GetHours(int hours)
+    {
+        return $"{hours} Jam Yang Lalu";
+    }
+    private static string GetMinutes(int minutes)
+    {
+        return $"{minutes} Menit Yang Lalu";
     }
 }

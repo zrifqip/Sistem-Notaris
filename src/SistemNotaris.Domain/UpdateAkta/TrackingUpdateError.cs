@@ -5,12 +5,12 @@ namespace SistemNotaris.Domain.UpdateAkta;
 public class TrackingUpdateError
 {
     public static Error NotFound = new(
-        "UpdateAkta.Found",
+        "TrackingUpdateAkta.Found",
         "Events tidak ditemukan");
 
     public static Error NotAuthorized = new
     (
-        "UpdateAkta.NotAuthorized",
+        "TrackingUpdateAkta.NotAuthorized",
         "Karyawan tidak dapat mengakses akta ini"
     );
 }

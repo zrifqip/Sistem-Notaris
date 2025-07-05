@@ -1,5 +1,4 @@
 using SistemNotaris.Domain.Abstraction;
-using SistemNotaris.Domain.Abstraction.Entity;
 using SistemNotaris.Domain.Shared;
 using SistemNotaris.Domain.TrackingsAkta.Events;
 
@@ -25,7 +24,9 @@ public sealed class TrackingAkta : Entity<Guid>
         CreatedAt = createdAt;
         FinishedAt = finishedAt;
     }
-
+    private TrackingAkta() : base(Guid.Empty)
+    {
+    }
     public Guid IdAkta { get; private set; }
     public Guid IdKaryawanSaatini { get; private set; }
     public ProgresStatus Status { get; private set; }
